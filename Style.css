@@ -1,0 +1,95 @@
+:root {
+  --bg: #f0f0f0;
+  --accent: #ccff00; /* Neon Lime */
+  --dark: #000000;
+  --gray: #222;
+  --shadow: 8px 8px 0px var(--dark);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dark) 1px, transparent 1px);
+  background-size: 30px 30px; /* Grid background */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.container { text-align: center; }
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: var(--dark);
+  color: white;
+  display: inline-block;
+  padding: 5px 15px;
+  margin-bottom: -10px;
+  position: relative;
+  z-index: 2;
+  border: 3px solid var(--dark);
+}
+
+.clock-card {
+  background: white;
+  border: 4px solid var(--dark);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  transform: rotate(-1deg);
+  transition: 0.3s ease;
+}
+
+.clock-card:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 12px 12px 0px var(--dark);
+}
+
+.clock {
+  width: 60vw;
+  max-width: 800px;
+}
+
+svg { width: 100%; filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1)); }
+
+/* Digits styling */
+.t, .tl, .tr, .m, .bl, .br, .b {
+  fill: #eee;
+  transition: fill 0.2s ease, filter 0.2s ease;
+}
+
+.active {
+  fill: var(--dark) !important;
+  filter: url(#glow);
+}
+
+.separator {
+  fill: var(--dark);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.1; }
+}
+
+.footer {
+  margin-top: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Time Logic Classes */
+.time-0 .t, .time-0 .tl, .time-0 .tr, .time-0 .bl, .time-0 .br, .time-0 .b { fill: var(--dark); }
+.time-1 .tr, .time-1 .br { fill: var(--dark); }
+.time-2 .t, .time-2 .tr, .time-2 .m, .time-2 .bl, .time-2 .b { fill: var(--dark); }
+.time-3 .t, .time-3 .tr, .time-3 .m, .time-3 .br, .time-3 .b { fill: var(--dark); }
+.time-4 .tl, .time-4 .tr, .time-4 .m, .time-4 .br { fill: var(--dark); }
+.time-5 .t, .time-5 .tl, .time-5 .m, .time-5 .br, .time-5 .b { fill: var(--dark); }
+.time-6 .t, .time-6 .tl, .time-6 .m, .time-6 .bl, .time-6 .br, .time-6 .b { fill: var(--dark); }
+.time-7 .t, .time-7 .tr, .time-7 .br { fill: var(--dark); }
+.time-8 .t, .time-8 .tl, .time-8 .tr, .time-8 .m, .time-8 .bl, .time-8 .br, .time-8 .b { fill: var(--dark); }
+.time-9 .t, .time-9 .tl, .time-9 .tr, .time-9 .m, .time-9 .br, .time-9 .b { fill: var(--dark); }
